@@ -1,0 +1,39 @@
+public class Main
+{
+    public static Object[] weather(double temperature, String scale, double windSpeed){
+     return new Object[] {temperature,scale,windSpeed};   
+    }
+	public static void main(String[] args) {
+		Object[] tuple = weather(15,"Цельсия",2);
+		for (int item = 0; item < tuple.length;item++){
+		    System.out.println(tuple[item] + " ");
+		}
+	}
+	public static void outputSeason(Seasons season){
+	    Object[2] seasonsTuple;
+	    switch (season){
+	        case (Seasons.Winter):
+	            seasonsTuple[0] = "Зима";
+	            seasonsTuple[1] = "Winter";
+	            break;
+	        case (Seasons.Autumn):
+	            seasonsTuple[0] = "Осень";
+	            seasonsTuple[1] = "Autumn";
+	            break;
+	        case (Seasons.Spring):
+	            seasonsTuple[0] = "Весна";
+	            seasonsTuple[1] = "Spring";
+	            break;
+	        case (Seasons.Summer):
+	            seasonsTuple[0] = "Лето";
+	            seasonsTuple[1] = "Summer";
+	            break;	            
+	    }
+	}
+}
+enum Seasons {
+    Winter,
+    Autumn,
+    Spring,
+    Summer;
+}
