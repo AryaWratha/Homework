@@ -1,0 +1,31 @@
+//1
+float fl1 = 3.14F; float fl2 = 42.0F;
+            double db1 = fl1 + fl2;
+            System.out.println(db1);
+        }
+        //2
+        {
+            int numberOne = 13;
+            int numberTwo = 12;
+            int result = numberOne / numberTwo;
+            int remainder = numberOne % numberTwo;
+            System.out.println("При делении " + numberOne + " на " + numberTwo + " результат равен " + result + ", остаток равен " + remainder);
+        }
+        {
+            System.out.println(signChange(-5)); // Вызов метода из Exercise 3.1
+            System.out.println(sumOfNumbers(5)); // Вызов метода из Exercise 3.2
+        }
+    //3.1
+    public static int signChange(int number) {
+        return -number;
+    }
+    	//3.2
+    	public static int sumOfNumbers(int number) {
+        	int i = 0;
+        	int result = 0;
+        	while(i < number) {
+        	    i++;
+        	    result += i;
+        	}
+	        return result;
+	       }
