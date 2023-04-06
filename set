@@ -1,0 +1,116 @@
+#1
+import java.util.HashSet;
+import java.util.Set;
+public class Main {
+public static void main(String[] args) {
+
+    public static Set<Integer> intersection(Set<Integer> set1, Set<Integer> set2) {
+        Set<Integer> result = new HashSet<>(set1);
+        result.retainAll(set2);
+        return result;
+    }
+
+    public static Set<Integer> symmetricDifference(Set<Integer> set1, Set<Integer> set2) {
+        Set<Integer> result = new HashSet<>(set1);
+        result.addAll(set2);
+        Set<Integer> intersection = new HashSet<>(set1);
+        intersection.retainAll(set2);
+        result.removeAll(intersection);
+        return result;
+    }
+
+    public static Set<Integer> union(Set<Integer> set1, Set<Integer> set2) {
+        Set<Integer> result = new HashSet<>(set1);
+        result.addAll(set2);
+        return result;
+    }
+
+    public static Set<Integer> difference(Set<Integer> set1, Set<Integer> set2) {
+        Set<Integer> result = new HashSet<>(set1);
+        result.removeAll(set2);
+        return result;
+    }
+
+    public static void main(String[] args) {
+        Set<Integer> set1 = new HashSet<>(Set.of(1, 2, 3, 4, 5));
+        Set<Integer> set2 = new HashSet<>(Set.of(4, 5, 6, 7, 8));
+
+        System.out.println("Set 1: " + set1);
+        System.out.println("Set 2: " + set2);
+
+        System.out.println("Intersection: " + intersection(set1, set2));
+        System.out.println("Symmetric difference: " + symmetricDifference(set1, set2));
+        System.out.println("Union: " + union(set1, set2));
+        System.out.println("Difference (set1 - set2): " + difference(set1, set2));
+    }
+  }
+}
+
+#22
+import java.util.HashSet;
+import java.util.Set;
+public class Main {
+public static void main(String[] args) {
+
+    public class Transformations<T> {
+    
+    public Set<T> toSet(T[] arr) {
+        Set<T> set = new HashSet<>();
+        for (T item : arr) {
+            set.add(item);
+        }
+        return set;
+        }
+    }
+    public static void main(String[] args) {
+        String[] arr = {"one", "two", "three"};
+        Transformations<String> transform = new Transformations<>();
+        Set<String> set = transform.toSet(arr);
+        System.out.println(set); 
+    }
+  }
+}
+
+#333
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
+
+public class MinMaxInSet {
+
+    public static Tuple<Integer, Integer> findMinMax(Set<Integer> set) {
+        if (set.isEmpty()) {
+            return null;
+        }
+        int min = Collections.min(set);
+        int max = Collections.max(set);
+        return new Tuple<>(min, max);
+    }
+
+    public static void main(String[] args) {
+        Set<Integer> set = new HashSet<>(Set.of(3, 7, -1, 5, 0, 2));
+        Tuple<Integer, Integer> result = findMinMax(set);
+        System.out.println("Set: " + set);
+        System.out.println("Min: " + result.getFirst());
+        System.out.println("Max: " + result.getSecond());
+    }
+
+}
+
+class Tuple<A, B> {
+    private final A first;
+    private final B second;
+
+    public Tuple(A first, B second) {
+        this.first = first;
+        this.second = second;
+    }
+
+    public A getFirst() {
+        return first;
+    }
+
+    public B getSecond() {
+        return second;
+    }
+}
